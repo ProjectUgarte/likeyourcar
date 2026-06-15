@@ -114,14 +114,17 @@
   .about-body .role{color:var(--accent);font-weight:600;margin-bottom:16px}
   .about-body p{color:var(--muted);font-size:16px;margin-bottom:14px;max-width:42em}
 
-  .tlist{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .tlist{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px}
   .tcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px;display:flex;flex-direction:column}
   .tcard .stars{color:var(--accent);font-size:15px;letter-spacing:2px;margin-bottom:14px}
   .tcard .quote{font-size:16px;color:var(--ink);line-height:1.6;flex:1}
-  .tcard .who{display:flex;align-items:center;gap:12px;margin-top:22px}
-  .tcard .ava{width:40px;height:40px;border-radius:50%;background:var(--bg);border:1px solid var(--line);display:grid;place-items:center;font-weight:600;font-size:14px;color:var(--accent)}
-  .tcard .who b{font-weight:600;font-size:14.5px}
-  .tcard .who span{display:block;font-size:13px;color:var(--muted)}
+  .tcard .by{margin-top:18px;font-size:13px;color:var(--muted);font-weight:500;letter-spacing:.02em}
+
+  .carousel{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 0 18px}
+  .slide{flex:0 0 300px;scroll-snap-align:start}
+  .slide .ph{height:220px;border-radius:var(--radius);background:var(--slate);display:grid;place-items:center;color:#8794A6;font-size:13px;text-align:center;padding:20px;border:1px solid var(--line)}
+  .slide .cap{margin-top:12px;font-size:14px;color:var(--muted)}
+  .slide .cap b{color:var(--ink);font-weight:600;display:block}
 
   details{border-bottom:1px solid var(--line);padding:20px 4px}
   summary{font-family:'Fraunces';font-size:20px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
@@ -146,7 +149,7 @@
   @media(max-width:900px){
     section{padding:64px 0}
     .hero-grid{grid-template-columns:1fr;gap:40px}
-    .steps,.tiers,.why-grid,.tlist{grid-template-columns:1fr}
+    .steps,.tiers,.why-grid{grid-template-columns:1fr}
     .tier.popular{transform:none}
     .tier.popular:hover{transform:translateY(-4px)}
     .why-grid{grid-template-columns:1fr 1fr}
@@ -341,7 +344,7 @@
       <div class="about-photo">[ Reviewer photo<br>goes here ]</div>
       <div class="about-body">
         <span class="eyebrow">Meet your reviewer</span>
-        <h2>Hi, I'm [ name ]</h2>
+        <h2>Hi, I'm Adam</h2>
         <div class="role">Automotive reviewer &amp; founder, Like Your Car</div>
         <p>I've spent many years reviewing cars — testing them on city streets, long road trips, off-road, and on-track. I've seen what looks great on paper and falls apart in real life, and what quietly becomes the car you never want to give up.</p>
         <p>Like Your Car is the service I wish every buyer had: an experienced, independent voice in your corner, helping you cut through the noise and choose with confidence.</p>
@@ -356,24 +359,32 @@
     <div class="section-head">
       <span class="eyebrow">What people say</span>
       <h2>Drivers who finally liked their car</h2>
-      <p>Sample quotes for this draft — your friend's five real testimonials slot right in here.</p>
+      <p>Real words from Adam's customers.</p>
     </div>
     <div class="tlist">
-      <div class="tcard">
-        <div class="stars">★★★★★</div>
-        <p class="quote">"I went from totally overwhelmed to completely confident in a week. The report spelled out exactly why each car fit my life — I didn't second-guess once."</p>
-        <div class="who"><div class="ava">JM</div><div><b>Jordan M.</b><span>First-time SUV buyer</span></div></div>
-      </div>
-      <div class="tcard">
-        <div class="stars">★★★★★</div>
-        <p class="quote">"No sales pressure, no agenda — just honest advice from someone who clearly knows cars. Worth every penny of the Full Service package."</p>
-        <div class="who"><div class="ava">PR</div><div><b>Priya R.</b><span>Full Service</span></div></div>
-      </div>
-      <div class="tcard">
-        <div class="stars">★★★★★</div>
-        <p class="quote">"We needed two very different vehicles for our family. The Whole Garage plan mapped out the perfect combo we hadn't even considered."</p>
-        <div class="who"><div class="ava">DC</div><div><b>Devin C.</b><span>Whole Garage</span></div></div>
-      </div>
+      <div class="tcard"><div class="stars">★★★★★</div><p class="quote">"Adam was very instrumental in helping me find the right car to fit my needs. It was simple and easy."</p><div class="by">Verified Like Your Car customer</div></div>
+      <div class="tcard"><div class="stars">★★★★★</div><p class="quote">"Adam was a great resource for us when shopping for a car. It's a perfect fit for our family."</p><div class="by">Verified Like Your Car customer</div></div>
+      <div class="tcard"><div class="stars">★★★★★</div><p class="quote">"Great advice based on my personal taste and needs. Adam empowered me to make the right choice many times."</p><div class="by">Verified Like Your Car customer</div></div>
+      <div class="tcard"><div class="stars">★★★★★</div><p class="quote">"Adam was able to suggest three to four options to look at and test drive. The whole process for my wife was smooth and enjoyable, because Adam did the heavy lifting for her."</p><div class="by">Verified Like Your Car customer</div></div>
+      <div class="tcard"><div class="stars">★★★★★</div><p class="quote">"I told Adam exactly what my criteria was for my new car. Adam made the whole experience stress free."</p><div class="by">Verified Like Your Car customer</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CUSTOMER GALLERY -->
+<section id="gallery">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Real results</span>
+      <h2>Happy drivers in their new rides</h2>
+      <p>Adam's customer photos go here — send me the carousel images and they drop straight into this slider.</p>
+    </div>
+    <div class="carousel">
+      <div class="slide"><div class="ph">[ Customer photo<br>goes here ]</div><div class="cap"><b>[ Customer name ]</b>their new [ car ]</div></div>
+      <div class="slide"><div class="ph">[ Customer photo<br>goes here ]</div><div class="cap"><b>[ Customer name ]</b>their new [ car ]</div></div>
+      <div class="slide"><div class="ph">[ Customer photo<br>goes here ]</div><div class="cap"><b>[ Customer name ]</b>their new [ car ]</div></div>
+      <div class="slide"><div class="ph">[ Customer photo<br>goes here ]</div><div class="cap"><b>[ Customer name ]</b>their new [ car ]</div></div>
+      <div class="slide"><div class="ph">[ Customer photo<br>goes here ]</div><div class="cap"><b>[ Customer name ]</b>their new [ car ]</div></div>
     </div>
   </div>
 </section>
