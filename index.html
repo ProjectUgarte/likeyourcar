@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <!--
-  Like Your Car — DRAFT PREVIEW
-  Placeholder content (tier names, prices, copy, brand mark, colors) — all easy to swap.
-  The point of this file is to show how polished the real site can look.
+  Like Your Car — DRAFT PREVIEW (real tiers + content)
+  Accurate: service tiers, prices, positioning, key quote.
+  Still placeholder: reviewer name/photo/bio, the 5 real testimonials, final brand colors/logo.
   Production version will move to Astro/Next + Vercel, with Stripe checkout + Tally embed.
 -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Like Your Car — Find a car you'll actually love</title>
-<meta name="description" content="Independent, personalized car-buying guidance. Tell us how you live; we'll tell you what to drive.">
+<title>Like Your Car — Clarity for car shopping, from a real reviewer</title>
+<meta name="description" content="Direct help from an automotive reviewer. We learn how you drive and live, then help you choose your next vehicle with confidence.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#F4F1EA; --surface:#FFFFFF; --ink:#17191E; --muted:#5C6069;
@@ -29,7 +29,7 @@
   a{color:inherit;text-decoration:none}
   section{padding:88px 0}
   .eyebrow{font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
-  .section-head{max-width:36em;margin:0 auto 56px;text-align:center}
+  .section-head{max-width:38em;margin:0 auto 56px;text-align:center}
   .section-head h2{font-size:clamp(30px,4vw,44px);margin:14px 0}
   .section-head p{color:var(--muted);font-size:18px}
   .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;padding:13px 22px;border-radius:999px;border:1px solid transparent;cursor:pointer;transition:.18s ease;font-family:'Inter'}
@@ -40,7 +40,6 @@
   .btn-light{background:#fff;color:var(--slate)}
   .btn-light:hover{transform:translateY(-1px)}
 
-  /* header */
   header{position:sticky;top:0;z-index:50;background:rgba(244,241,234,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
   .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
   .brand{display:flex;align-items:center;gap:11px;font-family:'Fraunces';font-size:21px;font-weight:600}
@@ -49,7 +48,6 @@
   .nav-links a:hover{color:var(--ink)}
   .nav-cta{display:flex;gap:12px;align-items:center}
 
-  /* hero */
   .hero{padding:76px 0 88px}
   .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
   .hero h1{font-size:clamp(40px,5.4vw,64px);margin:18px 0}
@@ -58,7 +56,6 @@
   .hero-note{margin-top:20px;font-size:14px;color:var(--muted)}
   .hero-note b{color:var(--ink);font-weight:600}
 
-  /* report card mockup */
   .report{background:var(--slate);border-radius:24px;padding:30px;color:#EDEFF3;box-shadow:var(--shadow)}
   .rc-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
   .rc-tag{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#94A1B2;font-weight:600}
@@ -76,14 +73,16 @@
   .rc-why{margin-top:22px;font-size:13.5px;color:#C4CCD8;line-height:1.5}
   .rc-why b{color:#fff;font-weight:600}
 
-  /* how it works */
+  .quote-band{background:#EFEBE1;text-align:center}
+  .quote-band .q{font-family:'Fraunces';font-style:italic;font-weight:400;font-size:clamp(24px,3.6vw,40px);line-height:1.25;max-width:17em;margin:0 auto;color:var(--ink)}
+  .quote-band .q-by{margin-top:22px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:600}
+
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
   .step{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:30px}
   .step .num{font-family:'Fraunces';font-size:15px;width:36px;height:36px;border-radius:10px;background:var(--bg);color:var(--accent);display:grid;place-items:center;font-weight:600;margin-bottom:18px;border:1px solid var(--line)}
   .step h3{font-size:21px;margin-bottom:8px}
   .step p{color:var(--muted);font-size:15px}
 
-  /* pricing */
   .pricing{background:#EFEBE1}
   .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
   .tier{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:32px;display:flex;flex-direction:column;transition:.2s ease}
@@ -91,7 +90,7 @@
   .tier.popular{background:var(--slate);color:#EDEFF3;border-color:var(--slate);transform:scale(1.03)}
   .tier.popular:hover{transform:scale(1.03) translateY(-4px)}
   .tier .t-name{font-family:'Fraunces';font-size:24px;margin-bottom:4px}
-  .tier .t-tag{font-size:14px;color:var(--muted);margin-bottom:20px}
+  .tier .t-tag{font-size:14px;color:var(--muted);margin-bottom:20px;min-height:40px}
   .tier.popular .t-tag{color:#94A1B2}
   .badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--accent);padding:5px 11px;border-radius:99px;margin-bottom:14px}
   .price{font-family:'Fraunces';font-size:46px;line-height:1;margin-bottom:4px}
@@ -103,28 +102,39 @@
   .feat svg{flex:none;margin-top:3px;color:var(--accent)}
   .price-foot{text-align:center;margin-top:26px;font-size:13px;color:var(--muted)}
 
-  /* why us */
   .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
   .why{padding:6px 4px}
   .why .ic{width:44px;height:44px;border-radius:12px;background:var(--surface);border:1px solid var(--line);display:grid;place-items:center;color:var(--accent);margin-bottom:16px}
   .why h3{font-size:19px;margin-bottom:7px}
   .why p{color:var(--muted);font-size:15px}
 
-  /* faq */
-  .faq{max-width:760px;margin:0 auto}
+  .about-grid{display:grid;grid-template-columns:240px 1fr;gap:48px;align-items:center}
+  .about-photo{width:220px;height:220px;border-radius:24px;background:var(--slate);display:grid;place-items:center;color:#8794A6;font-size:13px;text-align:center;padding:20px;border:1px solid var(--line);justify-self:center;line-height:1.5}
+  .about-body h2{font-size:clamp(28px,3.6vw,40px);margin-bottom:6px}
+  .about-body .role{color:var(--accent);font-weight:600;margin-bottom:16px}
+  .about-body p{color:var(--muted);font-size:16px;margin-bottom:14px;max-width:42em}
+
+  .tlist{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .tcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px;display:flex;flex-direction:column}
+  .tcard .stars{color:var(--accent);font-size:15px;letter-spacing:2px;margin-bottom:14px}
+  .tcard .quote{font-size:16px;color:var(--ink);line-height:1.6;flex:1}
+  .tcard .who{display:flex;align-items:center;gap:12px;margin-top:22px}
+  .tcard .ava{width:40px;height:40px;border-radius:50%;background:var(--bg);border:1px solid var(--line);display:grid;place-items:center;font-weight:600;font-size:14px;color:var(--accent)}
+  .tcard .who b{font-weight:600;font-size:14.5px}
+  .tcard .who span{display:block;font-size:13px;color:var(--muted)}
+
   details{border-bottom:1px solid var(--line);padding:20px 4px}
   summary{font-family:'Fraunces';font-size:20px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
   summary::-webkit-details-marker{display:none}
   summary .plus{flex:none;color:var(--accent);font-size:22px;transition:.2s}
   details[open] summary .plus{transform:rotate(45deg)}
   details p{color:var(--muted);font-size:15.5px;margin-top:12px;max-width:64ch}
+  .faq{max-width:760px;margin:0 auto}
 
-  /* cta band */
   .cta-band{background:var(--slate);color:#fff;border-radius:28px;padding:64px;text-align:center}
   .cta-band h2{font-size:clamp(30px,4vw,42px);margin-bottom:14px}
   .cta-band p{color:#AEB7C4;font-size:18px;margin-bottom:30px;max-width:34em;margin-left:auto;margin-right:auto}
 
-  /* footer */
   footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
   .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px;margin-bottom:40px}
   .foot-brand p{color:var(--muted);font-size:14.5px;margin-top:14px;max-width:26em}
@@ -136,13 +146,16 @@
   @media(max-width:900px){
     section{padding:64px 0}
     .hero-grid{grid-template-columns:1fr;gap:40px}
-    .steps,.tiers,.why-grid{grid-template-columns:1fr}
+    .steps,.tiers,.why-grid,.tlist{grid-template-columns:1fr}
     .tier.popular{transform:none}
     .tier.popular:hover{transform:translateY(-4px)}
     .why-grid{grid-template-columns:1fr 1fr}
+    .about-grid{grid-template-columns:1fr;gap:28px;text-align:center}
+    .about-body p{margin-left:auto;margin-right:auto}
     .nav-links{display:none}
     .foot-grid{grid-template-columns:1fr 1fr}
     .cta-band{padding:44px 24px}
+    .tier .t-tag{min-height:0}
   }
   @media(max-width:560px){.why-grid{grid-template-columns:1fr}.foot-grid{grid-template-columns:1fr}}
 </style>
@@ -155,8 +168,8 @@
     <nav class="nav-links">
       <a href="#how">How it works</a>
       <a href="#pricing">Packages</a>
-      <a href="#why">Why us</a>
-      <a href="#faq">FAQ</a>
+      <a href="#about">About</a>
+      <a href="#car-reviews">Car reviews</a>
     </nav>
     <div class="nav-cta">
       <a href="#pricing" class="btn btn-primary">Get started</a>
@@ -168,61 +181,69 @@
 <div class="hero">
   <div class="container hero-grid">
     <div>
-      <span class="eyebrow">Independent car-buying guidance</span>
+      <span class="eyebrow">Direct help from an automotive reviewer</span>
       <h1>This time around, you're going to like your car.</h1>
-      <p class="lead">Tell us how you actually live — your budget, your commute, your people, your priorities. We hand you a shortlist of cars genuinely worth your money. No dealerships. No pressure. No agenda.</p>
+      <p class="lead">Overwhelmed by endless listings, specs, and hot takes? Get clarity from someone who reviews cars for a living. We learn how you actually drive and live — then help you choose your next vehicle with total confidence.</p>
       <div class="hero-cta">
         <a href="#pricing" class="btn btn-primary">See the packages</a>
         <a href="#how" class="btn btn-ghost">How it works</a>
       </div>
-      <p class="hero-note"><b>Independent &amp; unbiased</b> &nbsp;•&nbsp; Personalized to you &nbsp;•&nbsp; Reports in 3–5 days</p>
+      <p class="hero-note"><b>Independent &amp; unbiased</b> &nbsp;•&nbsp; Personalized to you &nbsp;•&nbsp; From a real reviewer</p>
     </div>
     <div class="report">
-      <div class="rc-head"><span class="rc-tag">Match Report</span><span class="rc-pill">Top pick of 4</span></div>
+      <div class="rc-head"><span class="rc-tag">Your Report</span><span class="rc-pill">Top pick of 4</span></div>
       <div class="rc-car">2024 Mazda CX-5</div>
-      <div class="rc-sub">Tailored to the Rivera family · $32k budget</div>
+      <div class="rc-sub">Tailored to how you drive · $32k budget</div>
       <div class="donut">
         <svg width="84" height="84" viewBox="0 0 120 120">
           <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="11"/>
           <circle cx="60" cy="60" r="52" fill="none" stroke="#D8542A" stroke-width="11" stroke-linecap="round" stroke-dasharray="326.7" stroke-dashoffset="19.6" transform="rotate(-90 60 60)"/>
           <text x="60" y="67" text-anchor="middle" fill="#EDEFF3" font-family="Fraunces, serif" font-size="30">94</text>
         </svg>
-        <div class="d-label">Overall match<b>Excellent fit</b></div>
+        <div class="d-label">Overall fit<b>Excellent match</b></div>
       </div>
       <div class="bars">
-        <div class="bar-row"><span>Budget fit</span><div class="track"><div class="fill" style="width:92%"></div></div></div>
-        <div class="bar-row"><span>Space for family</span><div class="track"><div class="fill" style="width:88%"></div></div></div>
-        <div class="bar-row"><span>Fuel economy</span><div class="track"><div class="fill" style="width:81%"></div></div></div>
+        <div class="bar-row"><span>Fits your life</span><div class="track"><div class="fill" style="width:92%"></div></div></div>
+        <div class="bar-row"><span>Driving style</span><div class="track"><div class="fill" style="width:88%"></div></div></div>
+        <div class="bar-row"><span>Budget</span><div class="track"><div class="fill" style="width:81%"></div></div></div>
         <div class="bar-row"><span>Reliability</span><div class="track"><div class="fill" style="width:96%"></div></div></div>
       </div>
-      <p class="rc-why"><b>Why this one:</b> fits two car seats with room to spare, beats your 28 mpg goal, and lands ~$1,400 under budget.</p>
+      <p class="rc-why"><b>Why this one:</b> roomy for two car seats, matches your long-commute comfort priorities, and lands ~$1,400 under budget.</p>
     </div>
   </div>
 </div>
+
+<!-- QUOTE BAND -->
+<section class="quote-band">
+  <div class="container">
+    <p class="q">"We tend to buy cars for the specs, but we keep cars for the way they make us feel."</p>
+    <p class="q-by">The Like Your Car philosophy</p>
+  </div>
+</section>
 
 <!-- HOW IT WORKS -->
 <section id="how">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">How it works</span>
-      <h2>Three simple steps to your match</h2>
-      <p>No jargon, no upselling — just a clear path from "I need a car" to "this is the one."</p>
+      <h2>From overwhelmed to confident in three steps</h2>
+      <p>No dealerships, no upselling — just a clear path to a car that actually fits you.</p>
     </div>
     <div class="steps">
       <div class="step">
         <div class="num">1</div>
-        <h3>Take the survey</h3>
-        <p>A smart questionnaire about your budget, lifestyle, must-haves and deal-breakers. Takes about 10 minutes.</p>
+        <h3>Take the car survey</h3>
+        <p>A thoughtful questionnaire about your driving, your life, and what's made you love (or hate) cars in the past.</p>
       </div>
       <div class="step">
         <div class="num">2</div>
-        <h3>We do the research</h3>
-        <p>A real car person — not an algorithm — digs through the market and narrows it down to what actually fits you.</p>
+        <h3>Talk it through</h3>
+        <p>A call or chat with your reviewer to go over your needs, wants, and driving style — zero pressure, all guidance.</p>
       </div>
       <div class="step">
         <div class="num">3</div>
-        <h3>Get your match report</h3>
-        <p>A clear, written shortlist with the reasoning behind every pick — and a copy lands in your inbox to keep.</p>
+        <h3>Get your report</h3>
+        <p>A detailed written report comparing the vehicles that genuinely fit you — plus a copy of your survey in your inbox to keep.</p>
       </div>
     </div>
   </div>
@@ -234,51 +255,50 @@
     <div class="section-head">
       <span class="eyebrow">Packages</span>
       <h2>Pick the level of help you want</h2>
-      <p>Every package starts with your survey and ends with cars worth your money.</p>
+      <p>Every package starts with a survey and ends with confidence in your choice.</p>
     </div>
     <div class="tiers">
       <div class="tier">
-        <div class="t-name">The Shortlist</div>
-        <div class="t-tag">For the decisive buyer</div>
-        <div class="price">$49</div>
+        <div class="t-name">Gut Check</div>
+        <div class="t-tag">You're torn between two cars and just need to decide.</div>
+        <div class="price">$99</div>
         <ul class="feat">
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>Lifestyle &amp; needs survey</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>3 tailored vehicle picks</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>One-page match summary</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>Emailed copy to keep</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>3–5 day turnaround</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>Car survey</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>30-minute call or chat</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>Final written report</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>A copy of your survey to keep</li>
         </ul>
-        <a href="#" class="btn btn-ghost" style="justify-content:center">Get started</a>
+        <a href="#" class="btn btn-ghost" style="justify-content:center">Let's go</a>
       </div>
       <div class="tier popular">
         <span class="badge">Most popular</span>
-        <div class="t-name">The Match</div>
-        <div class="t-tag">Our most-loved package</div>
-        <div class="price">$99</div>
+        <div class="t-name">Full Service</div>
+        <div class="t-tag">We look at all your options, end to end.</div>
+        <div class="price">$249</div>
         <ul class="feat">
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>Everything in The Shortlist</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>Up to 5 tailored picks</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>Detailed written report</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>30-min consultation call</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>One revision round</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>Full car survey</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>1-hour call or chat</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>Detailed report comparing multiple vehicles</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>30-minute follow-up call or chat</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>A copy of your survey to keep</li>
         </ul>
-        <a href="#" class="btn btn-primary" style="justify-content:center">Get started</a>
+        <a href="#" class="btn btn-primary" style="justify-content:center">Let's go</a>
       </div>
       <div class="tier">
-        <div class="t-name">The Driveway</div>
-        <div class="t-tag">Maximum hand-holding</div>
-        <div class="price">$199</div>
+        <div class="t-name">Whole Garage</div>
+        <div class="t-tag">Curate the perfect garage for every driving scenario.</div>
+        <div class="price">$499</div>
         <ul class="feat">
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>Everything in The Match</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>Deep-dive: new &amp; used</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>Two consultation calls</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>Dealer question &amp; price prep</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>2 weeks follow-up support</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>Extensive car survey</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>2-hour call or chat</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>Detailed report with multiple car scenarios</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>1-hour follow-up call or chat</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>A copy of your survey to keep</li>
         </ul>
-        <a href="#" class="btn btn-ghost" style="justify-content:center">Get started</a>
+        <a href="#" class="btn btn-ghost" style="justify-content:center">Let's go</a>
       </div>
     </div>
-    <p class="price-foot">Sample packages for this draft — final names, prices and inclusions drop straight in.</p>
+    <p class="price-foot">Buttons are placeholders in this draft — secure Stripe checkout gets wired in next (≈3% in fees vs. the current 20%).</p>
   </div>
 </section>
 
@@ -291,24 +311,68 @@
     </div>
     <div class="why-grid">
       <div class="why">
-        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z" stroke-linejoin="round"/></svg></div>
-        <h3>Independent by design</h3>
-        <p>We don't sell cars and we take no dealer kickbacks. Our only job is your best fit.</p>
-      </div>
-      <div class="why">
         <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6" stroke-linecap="round"/></svg></div>
-        <h3>A human, not a bot</h3>
-        <p>Real automotive know-how reading your situation — not a spec filter spitting out listings.</p>
+        <h3>A real reviewer, not a bot</h3>
+        <p>Years of hands-on reviews — city streets, road trips, off-road, and on-track — reading your situation.</p>
       </div>
       <div class="why">
         <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h12" stroke-linecap="round"/></svg></div>
         <h3>Built around your life</h3>
-        <p>Car seats, dog crates, gravel roads, tight garages — the real stuff listings ignore.</p>
+        <p>Car seats, dog crates, gravel roads, tight garages, your hobbies — the real stuff listings ignore.</p>
+      </div>
+      <div class="why">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z" stroke-linejoin="round"/></svg></div>
+        <h3>Independent &amp; unbiased</h3>
+        <p>We don't sell cars and take no dealer kickbacks. Our only job is your best fit.</p>
       </div>
       <div class="why">
         <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v14H4z" stroke-linejoin="round"/><path d="M4 8l8 5 8-5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3>You keep everything</h3>
-        <p>Your full report and survey land in your inbox automatically — no chasing anyone for a copy.</p>
+        <p>Your full report and a copy of your survey land in your inbox automatically — no chasing anyone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-photo">[ Reviewer photo<br>goes here ]</div>
+      <div class="about-body">
+        <span class="eyebrow">Meet your reviewer</span>
+        <h2>Hi, I'm [ name ]</h2>
+        <div class="role">Automotive reviewer &amp; founder, Like Your Car</div>
+        <p>I've spent many years reviewing cars — testing them on city streets, long road trips, off-road, and on-track. I've seen what looks great on paper and falls apart in real life, and what quietly becomes the car you never want to give up.</p>
+        <p>Like Your Car is the service I wish every buyer had: an experienced, independent voice in your corner, helping you cut through the noise and choose with confidence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="reviews">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">What people say</span>
+      <h2>Drivers who finally liked their car</h2>
+      <p>Sample quotes for this draft — your friend's five real testimonials slot right in here.</p>
+    </div>
+    <div class="tlist">
+      <div class="tcard">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"I went from totally overwhelmed to completely confident in a week. The report spelled out exactly why each car fit my life — I didn't second-guess once."</p>
+        <div class="who"><div class="ava">JM</div><div><b>Jordan M.</b><span>First-time SUV buyer</span></div></div>
+      </div>
+      <div class="tcard">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"No sales pressure, no agenda — just honest advice from someone who clearly knows cars. Worth every penny of the Full Service package."</p>
+        <div class="who"><div class="ava">PR</div><div><b>Priya R.</b><span>Full Service</span></div></div>
+      </div>
+      <div class="tcard">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"We needed two very different vehicles for our family. The Whole Garage plan mapped out the perfect combo we hadn't even considered."</p>
+        <div class="who"><div class="ava">DC</div><div><b>Devin C.</b><span>Whole Garage</span></div></div>
       </div>
     </div>
   </div>
@@ -324,19 +388,19 @@
     <div class="faq">
       <details open>
         <summary>Do you negotiate or buy the car for me? <span class="plus">+</span></summary>
-        <p>No — we're an advisory service. We find the right cars for your situation and arm you with the reasoning; you handle the actual purchase. (A full concierge negotiation tier may come later.)</p>
+        <p>No — we're an advisory service. We help you choose the right car with total confidence; you handle the actual purchase. (A full concierge negotiation tier may come later.)</p>
+      </details>
+      <details>
+        <summary>What happens after I pay? <span class="plus">+</span></summary>
+        <p>You'll get your car survey by email. Once you complete it, we book your call or chat and start building your report — and a copy of your survey lands in your inbox automatically.</p>
       </details>
       <details>
         <summary>New, used, or both? <span class="plus">+</span></summary>
-        <p>Both — we recommend based on your budget and priorities, and the package you choose. Often the smartest pick is a lightly-used version of a new model.</p>
+        <p>Both — we recommend based on your budget, priorities, and the package you choose. Often the smartest pick is a lightly-used version of a newer model.</p>
       </details>
       <details>
-        <summary>How long does it take? <span class="plus">+</span></summary>
-        <p>Most match reports go out within 3–5 business days of your completed survey. Need it faster? Mention it and we'll see what's possible.</p>
-      </details>
-      <details>
-        <summary>What if I don't love the picks? <span class="plus">+</span></summary>
-        <p>The Match and The Driveway include revision rounds — we refine the shortlist with your feedback until it clicks.</p>
+        <summary>Which package is right for me? <span class="plus">+</span></summary>
+        <p>Torn between two specific cars? Start with <b>Gut Check</b>. Shopping more broadly? <b>Full Service</b> covers all your options. Need to plan multiple vehicles for the household? Go <b>Whole Garage</b>.</p>
       </details>
     </div>
   </div>
@@ -347,7 +411,7 @@
   <div class="container">
     <div class="cta-band">
       <h2>Ready to actually like your next car?</h2>
-      <p>Skip the dealership guesswork. Get a shortlist built around your real life.</p>
+      <p>Skip the dealership guesswork. Get clarity from a reviewer who's on your side.</p>
       <a href="#pricing" class="btn btn-light">See the packages</a>
     </div>
   </div>
@@ -359,17 +423,17 @@
     <div class="foot-grid">
       <div class="foot-brand">
         <div class="brand"><span class="mark">L</span> Like Your Car</div>
-        <p>Independent, personalized car-buying guidance. Tell us how you live; we'll tell you what to drive.</p>
+        <p>Clarity for car shopping — direct help from an automotive reviewer. We learn how you live; we help you choose what to drive.</p>
       </div>
       <div class="foot-col">
         <h4>Service</h4>
         <a href="#how">How it works</a>
         <a href="#pricing">Packages</a>
-        <a href="#faq">FAQ</a>
+        <a href="#car-reviews">Car reviews</a>
       </div>
       <div class="foot-col">
         <h4>Company</h4>
-        <a href="#">About</a>
+        <a href="#about">About</a>
         <a href="#">Contact</a>
       </div>
       <div class="foot-col">
@@ -379,7 +443,7 @@
     </div>
     <div class="foot-bottom">
       <span>© 2026 Like Your Car. All rights reserved.</span>
-      <span>Draft preview · placeholder content</span>
+      <span>Draft preview · some placeholder content</span>
     </div>
   </div>
 </footer>
