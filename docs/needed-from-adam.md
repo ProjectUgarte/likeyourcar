@@ -16,5 +16,8 @@ Checklist of everything still blocked on Adam. None of it stops the rest of the 
 - [ ] **Bio / About** — confirm or edit the bio text, and confirm using the "Your Car Choosing Expert" video there.
 - [ ] **Testimonials** — first names/initials to attribute the 5 reviews (optional, with permission).
 
+## Last step — go live
+- [ ] Once everything above is done, point **likeyourcar.com** at the new site (DNS at GoDaddy + repo setting). Full copy-paste walkthrough: [go-live-domain.md](go-live-domain.md). No code changes; ~20 min + a short DNS/HTTPS wait; reversible.
+
 ## Already captured (no action needed)
 - Brand purple (#9421FF), all three video embeds, real tiers/prices, the five real testimonials, his Terms text, the Drive It Out channel, and the full Full Service survey content.
