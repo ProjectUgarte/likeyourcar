@@ -27,6 +27,9 @@
   .type .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);flex:none}
   .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:16px;padding:15px 28px;border-radius:999px;background:var(--accent);color:#fff;transition:.18s ease}
   .btn:hover{background:var(--accent-ink);text-decoration:none;transform:translateY(-1px)}
+  .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .btn-ghost:hover{background:transparent;color:var(--accent);border-color:var(--accent)}
+  .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
   .sub{color:var(--muted);font-size:14px;margin-top:18px}
   footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:13.5px;text-align:center}
   @media(max-width:760px){.types{grid-template-columns:1fr}}
@@ -52,8 +55,11 @@
       <div class="type"><span class="dot"></span>Walk-arounds</div>
       <div class="type"><span class="dot"></span>…and more</div>
     </div>
-    <a class="btn" href="https://youtube.com/driveitout">Watch on the Drive It Out channel →</a>
-    <p class="sub">Also at driveitout.com · New videos posted regularly.</p>
+    <div class="cta-row">
+      <a class="btn" href="https://youtube.com/driveitout">Watch on the Drive It Out channel →</a>
+      <a class="btn btn-ghost" href="https://driveitout.com">Visit driveitout.com →</a>
+    </div>
+    <p class="sub">New videos posted regularly.</p>
   </div>
 </main>
 <footer>© 2026 Like Your Car. All rights reserved. · <a href="index.html" style="color:inherit;text-decoration:underline">Home</a></footer>
