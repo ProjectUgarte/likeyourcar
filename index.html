@@ -17,7 +17,7 @@
 <style>
   :root{
     --bg:#F5F4F9; --surface:#FFFFFF; --ink:#1B1726; --muted:#5C5766;
-    --line:#E7E3F0; --accent:#6D28D9; --accent-ink:#581CA8; --slate:#211934;
+    --line:#E7E3F0; --accent:#9421FF; --accent-ink:#7A14D6; --slate:#211934;
     --radius:16px; --shadow:0 1px 2px rgba(20,20,30,.04), 0 16px 36px -16px rgba(20,20,30,.20);
     --container:1120px;
   }
@@ -114,6 +114,15 @@
   .about-body .role{color:var(--accent);font-weight:600;margin-bottom:16px}
   .about-body p{color:var(--muted);font-size:16px;margin-bottom:14px;max-width:42em}
 
+  .mrow{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .mrow h2{font-size:clamp(28px,3.6vw,40px);margin:12px 0}
+  .mrow p{color:var(--muted);font-size:17px;line-height:1.7;max-width:42em}
+  .vid{position:relative;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--slate)}
+  .vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .vintro{text-align:center}
+  .vwrap{max-width:760px;margin:28px auto 0;position:relative;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--slate)}
+  .vwrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
   .tlist{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px}
   .tcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px;display:flex;flex-direction:column}
   .tcard .stars{color:var(--accent);font-size:15px;letter-spacing:2px;margin-bottom:14px}
@@ -149,7 +158,7 @@
   @media(max-width:900px){
     section{padding:64px 0}
     .hero-grid{grid-template-columns:1fr;gap:40px}
-    .steps,.tiers,.why-grid{grid-template-columns:1fr}
+    .steps,.tiers,.why-grid,.mrow{grid-template-columns:1fr}
     .tier.popular{transform:none}
     .tier.popular:hover{transform:translateY(-4px)}
     .why-grid{grid-template-columns:1fr 1fr}
@@ -200,7 +209,7 @@
       <div class="donut">
         <svg width="84" height="84" viewBox="0 0 120 120">
           <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="11"/>
-          <circle cx="60" cy="60" r="52" fill="none" stroke="#6D28D9" stroke-width="11" stroke-linecap="round" stroke-dasharray="326.7" stroke-dashoffset="19.6" transform="rotate(-90 60 60)"/>
+          <circle cx="60" cy="60" r="52" fill="none" stroke="#9421FF" stroke-width="11" stroke-linecap="round" stroke-dasharray="326.7" stroke-dashoffset="19.6" transform="rotate(-90 60 60)"/>
           <text x="60" y="67" text-anchor="middle" fill="#EDEFF3" font-family="Fraunces, serif" font-size="30">94</text>
         </svg>
         <div class="d-label">Overall fit<b>Excellent match</b></div>
@@ -216,11 +225,28 @@
   </div>
 </div>
 
-<!-- QUOTE BAND -->
-<section class="quote-band">
+<!-- WELCOME / INTRO VIDEO -->
+<section class="vintro">
   <div class="container">
-    <p class="q">"We tend to buy cars for the specs, but we keep cars for the way they make us feel."</p>
-    <p class="q-by">The Like Your Car philosophy</p>
+    <div class="section-head" style="margin-bottom:0">
+      <span class="eyebrow">Welcome</span>
+      <h2>A premium experience with your personal car-choosing expert</h2>
+    </div>
+    <div class="vwrap"><iframe src="https://www.youtube-nocookie.com/embed/eHAnL_Kp9ls" title="Welcome to Like Your Car" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE -->
+<section id="why-choose">
+  <div class="container">
+    <div class="mrow">
+      <div>
+        <span class="eyebrow">Why choose Like Your Car</span>
+        <h2>More than a machine</h2>
+        <p>We tend to buy cars for the specs, but we keep cars for the way they make us feel. You're getting more than just a machine; you're getting into a long-term relationship with a vehicle. You should choose a driving experience that fits you.</p>
+      </div>
+      <div class="vid"><iframe src="https://www.youtube-nocookie.com/embed/ZGShhZfbHUg" title="Why Choose Like Your Car" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+    </div>
   </div>
 </section>
 
@@ -340,8 +366,8 @@
 <!-- ABOUT -->
 <section id="about">
   <div class="container">
-    <div class="about-grid">
-      <div class="about-photo">[ Video about Adam<br>goes here ]</div>
+    <div class="mrow">
+      <div class="vid"><iframe src="https://www.youtube-nocookie.com/embed/B99MU7A7Nqg" title="Your Car Choosing Expert" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
       <div class="about-body">
         <span class="eyebrow">Your car choosing expert</span>
         <h2>Hi, I'm Adam</h2>
