@@ -16,7 +16,8 @@
  *
  * Notes:
  *  - Ranking questions become a grid (rows = items, columns = ranks) since Google
- *    Forms has no native ranking type. Adjust in the Forms editor if you prefer.
+ *    Forms has no native ranking type. Each rank can only be used once (a real
+ *    ranking). To fix a form that was already built, run fixExistingRankingGrids().
  *  - A couple of option labels were cleaned up (typos); review/tweak freely in the editor.
  */
 
@@ -98,6 +99,7 @@ function buildForm() {
       var cols = [];
       for (var i = 1; i <= q.ranks; i++) cols.push(String(i));
       var gr = form.addGridItem().setTitle(q.t).setRows(q.o).setColumns(cols);
+      gr.setValidation(FormApp.createGridValidation().requireLimitOneResponsePerColumn().build());
       if (q.req) gr.setRequired(true);
     }
   });
@@ -133,4 +135,21 @@ function onFormSubmit(e) {
       "\nWe'll review your responses and be in touch within 48 hours.\n\n— Adam, Like Your Car"
     );
   }
+}
+
+/**
+ * Run this ONCE on the already-built form to enforce a true ranking on every
+ * ranking question (each rank usable only once). Paste the form ID from its
+ * edit URL: https://docs.google.com/forms/d/<FORM_ID>/edit
+ */
+function fixExistingRankingGrids() {
+  var FORM_ID = "PASTE_FORM_ID_FROM_THE_EDIT_URL";
+  var form = FormApp.openById(FORM_ID);
+  var grids = form.getItems(FormApp.ItemType.GRID);
+  grids.forEach(function (it) {
+    it.asGridItem().setValidation(
+      FormApp.createGridValidation().requireLimitOneResponsePerColumn().build()
+    );
+  });
+  Logger.log("Updated " + grids.length + " ranking grid(s) to one response per column.");
 }
