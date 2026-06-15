@@ -12,7 +12,7 @@
    - Full Service — $249
    - Whole Garage — $499
 3. For each product, create a **Payment Link** (Dashboard → Payment Links → New).
-4. (Recommended) On each Payment Link, set the **"After payment" redirect** to the matching **Tally survey URL**. This automatically sends the customer to their survey the moment they pay — removing the manual "email them the survey" step entirely.
+4. (Recommended) On each Payment Link, set the **"After payment" redirect** to the matching **survey URL**. This automatically sends the customer to their survey the moment they pay — removing the manual "email them the survey" step entirely. The Full Service survey is now live here: `https://docs.google.com/forms/d/e/1FAIpQLSeyM7P1hyna-65SZ6MKGgGQkvYmjanXvHOYNT31xivs7ZsC6w/viewform`
 5. Turn on Stripe's **email receipts** (Settings → Customer emails) so buyers get an automatic receipt.
 6. Send the three Payment Link URLs to me and I'll wire them to the "Let's go" buttons on the site.
 
