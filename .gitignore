@@ -1,2 +1,8 @@
 .DS_Store
 node_modules/
+
+# Keep only the web-optimized gallery images + trimmed logo; ignore heavy originals
+assets/gallery/*
+!assets/gallery/car-*.jpg
+assets/*.png
+!assets/logo.png

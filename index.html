@@ -44,6 +44,7 @@
   .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
   .brand{display:flex;align-items:center;gap:11px;font-family:'Fraunces';font-size:21px;font-weight:600}
   .brand .mark{width:32px;height:32px;border-radius:9px;background:var(--accent);display:grid;place-items:center;color:#fff;font-family:'Fraunces';font-size:19px}
+  .brand .logo{height:30px;width:auto;display:block}
   .nav-links{display:flex;gap:30px;align-items:center;font-size:15px;font-weight:500;color:var(--muted)}
   .nav-links a:hover{color:var(--ink)}
   .nav-cta{display:flex;gap:12px;align-items:center}
@@ -134,6 +135,7 @@
   .slide .ph{height:220px;border-radius:var(--radius);background:var(--slate);display:grid;place-items:center;color:#8794A6;font-size:13px;text-align:center;padding:20px;border:1px solid var(--line)}
   .slide .cap{margin-top:12px;font-size:14px;color:var(--muted)}
   .slide .cap b{color:var(--ink);font-weight:600;display:block}
+  .slide img{width:100%;height:220px;object-fit:cover;border-radius:var(--radius);display:block;background:var(--slate)}
 
   details{border-bottom:1px solid var(--line);padding:20px 4px}
   summary{font-family:'Fraunces';font-size:20px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
@@ -176,7 +178,7 @@
 
 <header>
   <div class="container nav">
-    <div class="brand"><span class="mark">L</span> Like Your Car</div>
+    <div class="brand"><img class="logo" src="assets/logo.png" alt="Like Your Car"></div>
     <nav class="nav-links">
       <a href="#how">How it works</a>
       <a href="#pricing">Packages</a>
@@ -402,14 +404,17 @@
     <div class="section-head">
       <span class="eyebrow">Real results</span>
       <h2>Happy drivers in their new rides</h2>
-      <p>Adam's customer photos go here — send me the carousel images and they drop straight into this slider.</p>
+      <p>Real drivers in the cars we helped them choose.</p>
     </div>
     <div class="carousel">
-      <div class="slide"><div class="ph">[ Customer photo<br>goes here ]</div><div class="cap"><b>[ Customer name ]</b>their new [ car ]</div></div>
-      <div class="slide"><div class="ph">[ Customer photo<br>goes here ]</div><div class="cap"><b>[ Customer name ]</b>their new [ car ]</div></div>
-      <div class="slide"><div class="ph">[ Customer photo<br>goes here ]</div><div class="cap"><b>[ Customer name ]</b>their new [ car ]</div></div>
-      <div class="slide"><div class="ph">[ Customer photo<br>goes here ]</div><div class="cap"><b>[ Customer name ]</b>their new [ car ]</div></div>
-      <div class="slide"><div class="ph">[ Customer photo<br>goes here ]</div><div class="cap"><b>[ Customer name ]</b>their new [ car ]</div></div>
+      <div class="slide"><img src="assets/gallery/car-1.jpg" alt="Like Your Car customer with their car" loading="lazy"></div>
+      <div class="slide"><img src="assets/gallery/car-2.jpg" alt="Like Your Car customer with their car" loading="lazy"></div>
+      <div class="slide"><img src="assets/gallery/car-3.jpg" alt="Like Your Car customer with their car" loading="lazy"></div>
+      <div class="slide"><img src="assets/gallery/car-4.jpg" alt="Like Your Car customer with their car" loading="lazy"></div>
+      <div class="slide"><img src="assets/gallery/car-5.jpg" alt="Like Your Car customer with their car" loading="lazy"></div>
+      <div class="slide"><img src="assets/gallery/car-6.jpg" alt="Like Your Car customer with their car" loading="lazy"></div>
+      <div class="slide"><img src="assets/gallery/car-7.jpg" alt="Like Your Car customer with their car" loading="lazy"></div>
+      <div class="slide"><img src="assets/gallery/car-8.jpg" alt="Like Your Car customer with their car" loading="lazy"></div>
     </div>
   </div>
 </section>
@@ -472,7 +477,7 @@
   <div class="container">
     <div class="foot-grid">
       <div class="foot-brand">
-        <div class="brand"><span class="mark">L</span> Like Your Car</div>
+        <div class="brand"><img class="logo" src="assets/logo.png" alt="Like Your Car"></div>
         <p>Clarity for car shopping — direct help from an automotive reviewer. We learn how you live; we help you choose what to drive.</p>
       </div>
       <div class="foot-col">
