@@ -124,7 +124,10 @@
   .vwrap{max-width:760px;margin:28px auto 0;position:relative;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--slate)}
   .vwrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 
-  .tlist{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px}
+  .tlist{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px;padding:0 24px}
+  @media(max-width:1200px){.tlist{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  @media(max-width:760px){.tlist{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:480px){.tlist{grid-template-columns:1fr}}
   .tcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px;display:flex;flex-direction:column}
   .tcard .stars{color:var(--accent);font-size:15px;letter-spacing:2px;margin-bottom:14px}
   .tcard .quote{font-size:16px;color:var(--ink);line-height:1.6;flex:1}
@@ -399,15 +402,13 @@
     <div class="slide"><img src="assets/gallery/car-7.jpg" alt="Like Your Car customer with their car" loading="lazy"></div>
     <div class="slide"><img src="assets/gallery/car-8.jpg" alt="Like Your Car customer with their car" loading="lazy"></div>
   </div>
-  <div class="container">
-    <div class="tlist">
+  <div class="tlist">
       <div class="tcard"><div class="stars">★★★★★</div><p class="quote">"Adam was very instrumental in helping me find the right car to fit my needs. It was simple and easy."</p><div class="by">Verified Like Your Car customer</div></div>
       <div class="tcard"><div class="stars">★★★★★</div><p class="quote">"Adam was a great resource for us when shopping for a car. It's a perfect fit for our family."</p><div class="by">Verified Like Your Car customer</div></div>
       <div class="tcard"><div class="stars">★★★★★</div><p class="quote">"Great advice based on my personal taste and needs. Adam empowered me to make the right choice many times."</p><div class="by">Verified Like Your Car customer</div></div>
       <div class="tcard"><div class="stars">★★★★★</div><p class="quote">"Adam was able to suggest three to four options to look at and test drive. The whole process for my wife was smooth and enjoyable, because Adam did the heavy lifting for her."</p><div class="by">Verified Like Your Car customer</div></div>
       <div class="tcard"><div class="stars">★★★★★</div><p class="quote">"I told Adam exactly what my criteria was for my new car. Adam made the whole experience stress free."</p><div class="by">Verified Like Your Car customer</div></div>
     </div>
-  </div>
 </section>
 
 <!-- CAR REVIEWS -->
