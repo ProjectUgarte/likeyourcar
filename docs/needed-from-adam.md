@@ -7,8 +7,8 @@ Checklist of everything still blocked on Adam. None of it stops the rest of the 
 - [ ] **Payments:** create a **Stripe** account and send the **3 Payment Link URLs** (Gut Check $99, Full Service $249, Whole Garage $499). Step-by-step in [stripe-setup.md](stripe-setup.md). Set each link's "after payment" redirect to the matching survey to automate the hand-off.
 
 ## Assets
-- [ ] **Logo file** — the transparent PNG ("logo 7 no background.png", or a higher-res original). Currently a placeholder "L" mark.
-- [ ] **Customer gallery photos** — the carousel images, each person's name + the car, and confirmation he has permission to display them.
+- [x] **Logo** — ✅ added (his "LIKE YOUR CAR" wordmark, trimmed and placed in the header/footer across all pages).
+- [x] **Customer gallery photos** — ✅ 8 photos optimized and live in the gallery carousel. Shown without names/captions, per Adam's request.
 
 ## Decisions / info
 - [ ] **Real GoDaddy processing fee** — from a payout statement (confirms whether Stripe actually saves money vs. his current setup).
