@@ -23,6 +23,7 @@ const QUESTIONS = [
   { t: "Name", type: "short", req: true },
   { t: "Email", type: "email", req: true },
   { t: "Phone number", type: "short", req: true },
+  { t: "Please categorize your overall budget.", type: "choice", req: true, o: ["$0 - $10,000", "$10,000 - $20,000", "$20,000 - $30,000", "$30,000 - $40,000", "$40,000 - $50,000", "$50,000 - $60,000", "$60,000 - $70,000", "$70,000 - $80,000", "$80,000 - $90,000", "$90,000 - $100,000", "$100,000+", "Unsure"] },
   { t: "First vehicle you're choosing between", type: "short", req: true },
   { t: "Second vehicle you're choosing between", type: "short", req: true },
   { t: "Have you test-driven these vehicles yet?", type: "choice", req: true, o: ["Yes", "No", "I've test-driven 1 of the vehicles"] },
