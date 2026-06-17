@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Whole Garage — Like Your Car</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tier.css">
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a class="brand" href="index.html"><img class="logo" src="assets/logo.png" alt="Like Your Car"></a>
+    <a class="crumb" href="index.html#pricing">← All packages</a>
+  </div>
+</header>
+<main>
+  <div class="container">
+    <div class="prow">
+      <div class="pvideo"><iframe src="https://www.youtube.com/embed/wCr6IIPf_Ig" title="Whole Garage — Like Your Car" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="pinfo">
+        <span class="eyebrow">Package</span>
+        <h1>Whole Garage</h1>
+        <div class="price">$499</div>
+        <p class="desc">For multiple vehicles, or curating the perfect garage. We map out car combinations across all your driving scenarios so every spot in the driveway is the right call.</p>
+        <ul class="feat">
+          <li>Extensive car survey</li>
+          <li>2-hour call or chat</li>
+          <li>Detailed report with multiple car scenarios</li>
+          <li>1-hour follow-up call or chat</li>
+          <li>A copy of your survey to keep</li>
+        </ul>
+        <div class="lock">
+          <label class="agree"><input type="checkbox" id="agree"> I have read and agree to the <a href="terms.html" target="_blank" rel="noopener">Terms of Service</a>.</label>
+          <a id="buy" class="btn is-disabled" role="button" data-href="https://7e94e9e5-74b6-4f03-a2dc-dcd683c5c486.paylinks.godaddy.com/WholeGarage">Purchase · $499</a>
+          <p class="lockhint">Check the box above to continue to secure checkout.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<footer>© 2026 Like Your Car. All rights reserved. · <a href="index.html">Home</a></footer>
+<script>
+(function(){var cb=document.getElementById('agree'),b=document.getElementById('buy');function s(){if(cb.checked){b.classList.remove('is-disabled');b.setAttribute('href',b.dataset.href);}else{b.classList.add('is-disabled');b.removeAttribute('href');}}cb.addEventListener('change',s);s();})();
+</script>
+</body>
+</html>
