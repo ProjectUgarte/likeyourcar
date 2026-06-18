@@ -17,7 +17,7 @@
 6. Send the three Payment Link URLs to me and I'll wire them to the "Let's go" buttons on the site.
 
 ## Notes
-- Stripe supports cards, Apple Pay, and Google Pay automatically — same coverage as now.
+- **Payment methods:** Stripe covers **credit/debit cards (Visa, Mastercard, Amex, Discover), Apple Pay, and Google Pay automatically** on its hosted checkout — and because our buttons link out to Stripe's hosted page, there's **no Apple Pay domain setup** to worry about. **PayPal** is also a Stripe payment method, but availability is **region-dependent** (it rolled out in Europe first and has been expanding to the US) — check **Settings → Payment methods** in the dashboard to see if PayPal can be toggled on for his account. If it can't, either keep a separate PayPal link alongside (like his current setup) or rely on cards + Apple/Google Pay, which cover the large majority of buyers.
 - No card data ever touches the website; Stripe hosts the checkout page and handles all PCI compliance. (So the site does not need to be private.)
 - Only the checkout step hands off to Stripe; everything else stays on the new site.
 
