@@ -9,7 +9,7 @@ Adam isn't on Tally Pro, so the "respondent gets a copy + Adam gets notified" fe
 
 ## Setup (~3 minutes, one time)
 1. Go to **script.google.com** → **New project**.
-2. Delete the sample code and paste in everything from [google-forms-survey.gs](google-forms-survey.gs).
+2. Delete the sample code and paste in the script for the tier you're building — [google-forms-full-service.gs](google-forms-full-service.gs), [google-forms-gut-check.gs](google-forms-gut-check.gs), or [google-forms-whole-garage.gs](google-forms-whole-garage.gs). (Repeat for each of the three.)
 3. Change `ADAM_EMAIL` at the top to Adam's real email.
 4. Click **Run ▸ buildForm** and approve the permission prompt.
 5. Open **View ▸ Logs** — it prints the form's **LIVE URL**. Send that URL back and it gets wired to the "Let's go" buttons on the site.
