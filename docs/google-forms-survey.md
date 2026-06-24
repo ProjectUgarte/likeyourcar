@@ -15,8 +15,9 @@ Adam isn't on Tally Pro, so the "respondent gets a copy + Adam gets notified" fe
 5. Open **View ▸ Logs** — it prints the form's **LIVE URL**. Send that URL back and it gets wired to the "Let's go" buttons on the site.
 
 ## Notes
-- The script builds the **Full Service** survey (the one we had the link to). The **Gut Check** and **Whole Garage** surveys can be rebuilt the same way once we grab their content from Adam's Tally account.
+- There are **three scripts now** — Full Service, Gut Check, and Whole Garage — each builds its own survey (all include the budget question). Run each once in its own Apps Script project.
 - Ranking questions become a 1–N grid (Google Forms has no native ranking). Tweak anything in the Forms editor after it's created — the script just creates a faithful starting point.
+- **The form's share URL is permanent.** Editing questions (add / remove / reword / reorder) in the Forms editor never changes the link, so you can hand the `…/viewform` URL to Stripe now and keep editing later. The link only changes if you **delete + recreate** the form or **re-run `buildForm`** (which makes a brand-new form) — so edit in the Forms UI, don't re-run the script. Keep a question with **"Email" in its title**, or the auto-copy-to-customer can't find the address.
 - Test it once (submit with your own email) to confirm the copy + notification arrive.
 
 ## If Adam would rather not switch
