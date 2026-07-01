@@ -23,8 +23,8 @@
   .eyebrow{font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
   h1{font-family:'Fraunces';font-weight:500;font-size:clamp(34px,5vw,52px);margin:14px 0}
   .lead{color:var(--muted);font-size:19px;max-width:34em;margin:0 auto 40px}
-  .types{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:0 auto 44px;text-align:left}
-  .type{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;font-weight:500;display:flex;align-items:center;gap:12px}
+  .types{display:grid;grid-template-columns:1fr;gap:6px;margin:0 auto 44px;max-width:22em;text-align:left}
+  .type{background:transparent;border:0;border-radius:0;padding:5px 2px;font-weight:500;display:flex;align-items:center;gap:12px}
   .type .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);flex:none}
   .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:16px;padding:15px 28px;border-radius:999px;background:var(--accent);color:#fff;transition:.18s ease}
   .btn:hover{background:var(--accent-ink);text-decoration:none;transform:translateY(-1px)}
@@ -47,7 +47,7 @@
   <div class="container">
     <span class="eyebrow">Car reviews</span>
     <h1>Adam's car reviews</h1>
-    <p class="lead">The same hands-on experience behind every consultation. Watch in-depth, no-nonsense reviews from someone who actually lives with these cars.</p>
+    <p class="lead">Watch reviews of vehicles that provide driving experiences you'll love. We often choose cars based on specs and hype, but we keep cars based on how they make us feel. We provide information you want to know about the best modern cars, but with an emphasis on what you can expect from the driver seat.</p>
     <div class="types">
       <div class="type"><span class="dot"></span>In-depth reviews</div>
       <div class="type"><span class="dot"></span>Test-drives</div>
@@ -57,10 +57,10 @@
       <div class="type"><span class="dot"></span>…and more</div>
     </div>
     <div class="cta-row">
-      <a class="btn" href="https://youtube.com/driveitout">Watch on the Drive It Out channel →</a>
+      <a class="btn" href="https://youtube.com/driveitout">Watch on the DriveItOut channel →</a>
       <a class="btn btn-ghost" href="https://driveitout.com">Visit driveitout.com →</a>
     </div>
-    <p class="sub">New videos posted regularly.</p>
+    <p class="sub" style="font-size:17px">New videos posted regularly.</p>
   </div>
 </main>
 <footer>© 2026 Like Your Car. All rights reserved. · <a href="index.html" style="color:inherit;text-decoration:underline">Home</a></footer>
