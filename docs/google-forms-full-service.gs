@@ -22,6 +22,8 @@
  */
 
 const ADAM_EMAIL = "REPLACE_WITH_ADAMS_EMAIL@example.com";
+const SENDER_EMAIL = "hello@likeyourcar.com"; // survey emails send FROM this — must be a verified "Send mail as" alias in the Gmail running this script
+const SENDER_NAME = "Like Your Car";
 const FORM_TITLE = "Like Your Car — Full Service Survey";
 const FORM_INTRO = "This survey helps us understand what type of driver you are and identify the vehicle characteristics that matter most to you. You'll receive a copy of your responses, and someone from the Like Your Car team will reach out within 48 hours. We can't wait to dive into this with you!";
 
@@ -112,6 +114,28 @@ function buildForm() {
   Logger.log("EDIT URL (your admin link): " + form.getEditUrl());
 }
 
+/**
+ * Sends survey mail FROM the Like Your Car alias when it's set up; otherwise falls
+ * back to the account's default address so nothing breaks before the alias exists.
+ */
+function sendMail(to, subject, body) {
+  var aliases = GmailApp.getAliases();
+  if (aliases.indexOf(SENDER_EMAIL) !== -1) {
+    GmailApp.sendEmail(to, subject, body, { from: SENDER_EMAIL, name: SENDER_NAME });
+  } else {
+    MailApp.sendEmail({ to: to, subject: subject, body: body, name: SENDER_NAME });
+  }
+}
+
+// Run this ONCE after pasting to grant the Gmail permission and confirm the alias.
+function authorize() {
+  var a = GmailApp.getAliases();
+  Logger.log("Send-mail-as aliases on this account: " + a.join(", "));
+  Logger.log(a.indexOf(SENDER_EMAIL) !== -1
+    ? "OK — survey emails will send from " + SENDER_EMAIL
+    : "NOT YET — add " + SENDER_EMAIL + " as a 'Send mail as' alias, then it switches automatically.");
+}
+
 function onFormSubmit(e) {
   var items = e.response.getItemResponses();
   var respondentEmail = "";
@@ -125,10 +149,10 @@ function onFormSubmit(e) {
   });
   var body = lines.join("\n");
 
-  MailApp.sendEmail(ADAM_EMAIL, "New Like Your Car survey submission", body);
+  sendMail(ADAM_EMAIL, "New Like Your Car survey submission", body);
 
   if (respondentEmail) {
-    MailApp.sendEmail(
+    sendMail(
       respondentEmail,
       "Your Like Your Car survey — a copy of your answers",
       "Thanks for completing your Like Your Car survey! Here is a copy of your answers for your records.\n\n" +
