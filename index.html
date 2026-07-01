@@ -162,6 +162,10 @@
   .cta-band{background:var(--slate);color:#fff;border-radius:28px;padding:64px;text-align:center}
   .cta-band h2{font-size:clamp(30px,4vw,42px);margin-bottom:14px}
   .cta-band p{color:#AEB7C4;font-size:18px;margin-bottom:30px;max-width:34em;margin-left:auto;margin-right:auto}
+  .reviews-band{position:relative;border-radius:28px;overflow:hidden;padding:clamp(40px,6vw,64px) 28px;text-align:center;border:1px solid var(--line);background-image:linear-gradient(rgba(12,13,16,.74),rgba(12,13,16,.82)),url('assets/reviews/minivans.jpg');background-size:cover;background-position:center}
+  .reviews-band .eyebrow{color:#C99BFF}
+  .reviews-band h2{color:#fff}
+  .reviews-band .section-head p{color:#E6E9EF}
 
   footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
   .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px;margin-bottom:40px}
@@ -434,13 +438,15 @@
 <!-- CAR REVIEWS -->
 <section id="car-reviews" style="padding-top:0">
   <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Car reviews</span>
-      <h2>Watch Adam in action</h2>
-      <p>In-depth reviews, test-drives, car comparisons, long-term ownership reviews, walk-arounds, and more — straight from the DriveItOut channel.</p>
-    </div>
-    <div style="text-align:center">
-      <a href="car-reviews.html" class="btn btn-primary">Browse the reviews →</a>
+    <div class="reviews-band">
+      <div class="section-head" style="margin-bottom:26px">
+        <span class="eyebrow">Car reviews</span>
+        <h2>Watch Adam in action</h2>
+        <p>In-depth reviews, test-drives, car comparisons, long-term ownership reviews, walk-arounds, and more — straight from the DriveItOut channel.</p>
+      </div>
+      <div style="text-align:center">
+        <a href="car-reviews.html" class="btn btn-light">Browse the reviews →</a>
+      </div>
     </div>
   </div>
 </section>
