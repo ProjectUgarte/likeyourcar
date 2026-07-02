@@ -1,52 +1,59 @@
 # Final steps for Adam
 
-Two small setup tasks. Neither is urgent and neither can break the live site.
+Both of these are finicky — here's the easy version. Neither can break the live site.
 
 ---
 
-## Part A — Make survey emails come from `hello@likeyourcar.com`
+## Part A — Survey sender name (easy, no permissions)
 
-Right now the survey copy/notification emails go out from your personal Gmail
-(that's just how Google Apps Script works — it sends as whoever runs it). This
-makes them send from the business address instead.
+The updated scripts now label every survey email with the sender name
+**"Like Your Car"** (instead of your bare Gmail). This uses the permission you
+already granted, so there's **nothing to find in settings and no alias to set up.**
 
-1. In the **Gmail account that owns the 3 survey forms**: gear icon →
-   **See all settings** → **Accounts and Import** → **"Send mail as"** →
-   **Add another email address**.
-2. Name: **Like Your Car**, Email: **hello@likeyourcar.com** → Next → Send verification.
-3. Open the **hello@likeyourcar.com** inbox, grab the verification code/link, and confirm.
-   It should now appear under "Send mail as".
-4. Open each of the **3 Apps Script projects** (script.google.com), select-all in the
-   editor, delete, and **paste the updated script** (the files
-   `google-forms-gut-check.gs`, `google-forms-full-service.gs`,
-   `google-forms-whole-garage.gs`). Re-set `ADAM_EMAIL` to your real email. **Save.**
-   - ⚠️ **Do NOT run `buildForm` again** — that would build brand-new forms with new
-     links. Just save the new code; your existing forms + triggers keep working.
-5. In each project, **Run → `authorize`** once and approve the Gmail permission.
-   Open **View → Logs** — it should say *"OK — survey emails will send from
-   hello@likeyourcar.com."*
-6. Submit one test response per form to confirm the copy now comes **from
-   hello@likeyourcar.com**, then delete the test rows.
+1. Open each of the **3 Apps Script projects** (script.google.com).
+2. Select all in the editor → delete → **paste the updated script**
+   (`google-forms-gut-check.gs`, `google-forms-full-service.gs`,
+   `google-forms-whole-garage.gs`).
+3. Re-set `ADAM_EMAIL` to your real email. **Save.**
+   - ⚠️ **Do NOT run `buildForm` again** — that builds brand-new forms with new
+     links. Just save; your existing forms + triggers keep working.
+4. That's it. No permission prompt, no alias. Submit one test to confirm the copy
+   now shows **"Like Your Car"** as the sender.
 
-*Safety net: until the alias is verified, the scripts automatically fall back to
-sending from your normal Gmail — so nothing errors if you save the code first.*
+### Optional upgrade (later) — send from `hello@likeyourcar.com`
+Making the address itself read `hello@likeyourcar.com` (not just the name) needs a
+verified Gmail **"Send mail as"** alias, which lives in **Gmail on desktop** →
+gear → **See all settings** → **Accounts and Import** → **"Send mail as"**. That
+only works if `hello@likeyourcar.com` is a mailbox you can receive a verification
+code at — so first we need to know what that address actually is (see below). Not
+required to launch; the sender name above is the main thing.
 
 ---
 
-## Part B — Contact form (Formspree, ~3 minutes)
+## Part B — Contact form (Formspree)
 
-The site's **Contact** page form needs a free Formspree endpoint so submissions
-land in the `hello@likeyourcar.com` inbox.
+Formspree's free plan locks submissions to the **account's own email** (your Gmail),
+and changing the destination is a paid/gated feature — that's the wall you hit.
 
-1. Go to **formspree.io** → **Sign up** (free — you can use Google).
-2. **New Form** → name it *"Like Your Car Contact"* → set the recipient email to
-   **hello@likeyourcar.com**.
-3. Copy the form's **endpoint URL** — it looks like `https://formspree.io/f/abcdwxyz`.
-4. **Send that URL to Alex** — it gets dropped into the contact page and goes live.
-5. Formspree may email you once to confirm the form on its first submission — just
-   click that confirmation.
+**Easiest path (do this):** just leave the form pointing at your Gmail for now, and
+send Alex the form's **endpoint URL** (looks like `https://formspree.io/f/abcdwxyz`,
+under the form's *Integration → HTML*). The contact form goes live today and
+messages reach you. We can move the destination to `hello@likeyourcar.com` later.
 
 ---
 
-**Bottom line to send back:** (1) confirm the survey alias is verified + scripts
-re-pasted, and (2) the Formspree endpoint URL. That finalizes both.
+## The one question that unblocks the "polished" versions
+
+**What is `hello@likeyourcar.com` right now?**
+- a real mailbox you can log into (if so, where — GoDaddy webmail? Google?),
+- a forward that just points to your Gmail, or
+- not actually set up yet?
+
+That answer decides both the survey "send from" alias and where the contact form
+ultimately routes.
+
+---
+
+**Bottom line to send back:** (1) the Formspree **endpoint URL** (Gmail destination
+is fine for now), and (2) what `hello@likeyourcar.com` actually is. The survey
+sender-name fix just needs the 3 scripts re-pasted.

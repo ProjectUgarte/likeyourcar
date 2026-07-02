@@ -22,8 +22,7 @@
  */
 
 const ADAM_EMAIL = "REPLACE_WITH_ADAMS_EMAIL@example.com";
-const SENDER_EMAIL = "hello@likeyourcar.com"; // survey emails send FROM this — must be a verified "Send mail as" alias in the Gmail running this script
-const SENDER_NAME = "Like Your Car";
+const SENDER_NAME = "Like Your Car"; // shown as the sender name on the survey emails
 const FORM_TITLE = "Like Your Car — Full Service Survey";
 const FORM_INTRO = "This survey helps us understand what type of driver you are and identify the vehicle characteristics that matter most to you. You'll receive a copy of your responses, and someone from the Like Your Car team will reach out within 48 hours. We can't wait to dive into this with you!";
 
@@ -115,25 +114,12 @@ function buildForm() {
 }
 
 /**
- * Sends survey mail FROM the Like Your Car alias when it's set up; otherwise falls
- * back to the account's default address so nothing breaks before the alias exists.
+ * Sends survey mail showing "Like Your Car" as the sender name. Uses MailApp, so it
+ * needs no permissions beyond what buildForm already granted. (Optional later upgrade:
+ * send from hello@likeyourcar.com via a verified Gmail "Send mail as" alias.)
  */
 function sendMail(to, subject, body) {
-  var aliases = GmailApp.getAliases();
-  if (aliases.indexOf(SENDER_EMAIL) !== -1) {
-    GmailApp.sendEmail(to, subject, body, { from: SENDER_EMAIL, name: SENDER_NAME });
-  } else {
-    MailApp.sendEmail({ to: to, subject: subject, body: body, name: SENDER_NAME });
-  }
-}
-
-// Run this ONCE after pasting to grant the Gmail permission and confirm the alias.
-function authorize() {
-  var a = GmailApp.getAliases();
-  Logger.log("Send-mail-as aliases on this account: " + a.join(", "));
-  Logger.log(a.indexOf(SENDER_EMAIL) !== -1
-    ? "OK — survey emails will send from " + SENDER_EMAIL
-    : "NOT YET — add " + SENDER_EMAIL + " as a 'Send mail as' alias, then it switches automatically.");
+  MailApp.sendEmail({ to: to, subject: subject, body: body, name: SENDER_NAME });
 }
 
 function onFormSubmit(e) {
