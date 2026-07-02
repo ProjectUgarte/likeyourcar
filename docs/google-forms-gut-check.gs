@@ -17,6 +17,7 @@
 
 const ADAM_EMAIL = "REPLACE_WITH_ADAMS_EMAIL@example.com";
 const SENDER_NAME = "Like Your Car"; // shown as the sender name on the survey emails
+const REPLY_TO = "hello@likeyourcar.com"; // if a customer replies to their copy, it goes to the business inbox
 const FORM_TITLE = "Like Your Car — Gut Check Survey";
 const FORM_INTRO = "You've narrowed your search to two vehicles and want to talk it through before deciding. This survey helps us understand what kind of driver you are. After you submit, you'll receive a copy of your answers and someone from the Like Your Car team will reach out within 48 hours.";
 
@@ -94,7 +95,7 @@ function buildForm() {
  * send from hello@likeyourcar.com via a verified Gmail "Send mail as" alias.)
  */
 function sendMail(to, subject, body) {
-  MailApp.sendEmail({ to: to, subject: subject, body: body, name: SENDER_NAME });
+  MailApp.sendEmail({ to: to, subject: subject, body: body, name: SENDER_NAME, replyTo: REPLY_TO });
 }
 
 function onFormSubmit(e) {
