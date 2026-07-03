@@ -15,7 +15,7 @@
  * To fix a form already built, run fixExistingRankingGrids().
  */
 
-const ADAM_EMAIL = "REPLACE_WITH_ADAMS_EMAIL@example.com";
+const ADAM_EMAIL = "hello@likeyourcar.com"; // where the "new submission" alert goes
 const SENDER_NAME = "Like Your Car"; // shown as the sender name on the survey emails
 const REPLY_TO = "hello@likeyourcar.com"; // if a customer replies to their copy, it goes to the business inbox
 const FORM_TITLE = "Like Your Car — Gut Check Survey";
