@@ -6,3 +6,5 @@ assets/gallery/*
 !assets/gallery/car-*.jpg
 assets/*.png
 !assets/logo.png
+!assets/favicon.png
+!assets/apple-touch-icon.png
